@@ -175,8 +175,9 @@
             this.widthInput.Name = "widthInput";
             this.widthInput.Size = new System.Drawing.Size(238, 32);
             this.widthInput.TabIndex = 20;
-            this.widthInput.Validating += new System.ComponentModel.CancelEventHandler(this.widthInput_Validated);
-            this.widthInput.Validated += new System.EventHandler(this.widthInput_Validating);
+            this.widthInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.widthInput_Validating);
+            //this.widthInput.Validating += new System.ComponentModel.CancelEventHandler(this.widthInput_Validating);
+            this.widthInput.Validated += new System.EventHandler(this.widthInput_Validated);
             // 
             // depthInput
             // 
@@ -185,8 +186,9 @@
             this.depthInput.Name = "depthInput";
             this.depthInput.Size = new System.Drawing.Size(238, 32);
             this.depthInput.TabIndex = 21;
-            this.depthInput.Validating += new System.ComponentModel.CancelEventHandler(this.depthInput_Validated);
-            this.depthInput.Validated += new System.EventHandler(this.depthInput_Validating);
+            this.depthInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.depthInput_Validating);
+            //this.depthInput.Validating += new System.ComponentModel.CancelEventHandler(this.depthInput_Validating);
+            this.depthInput.Validated += new System.EventHandler(this.depthInput_Validated);
 
             // 
             // rushInput

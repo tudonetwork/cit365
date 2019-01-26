@@ -40,14 +40,13 @@ namespace MegaDesk_3_RamonAndrade
             if(widthInput.Text.Length > 0)
             {
      
-                double w;
-                if (Double.TryParse(widthInput.Text.Trim(), out w))
+                int w;
+                if (int.TryParse(widthInput.Text.Trim(), out w))
                 {
-                    double widthInp = double.Parse(widthInput.Text);
+                    int widthInp = int.Parse(widthInput.Text);
 
                     if (!ValidWidthInput(widthInp, out errorMsg))
                     {
-                        widthInput.Select(0, widthInput.Text.Length);
                         this.errorProvider2.SetError(widthInput, errorMsg);
                     }
                 } else {
@@ -62,10 +61,17 @@ namespace MegaDesk_3_RamonAndrade
 
         private void widthInput_Validated(object sender, EventArgs e)
         {
+
+
+
+
+
+ 
+
             errorProvider2.SetError(widthInput, "");
         }
 
-        public bool ValidWidthInput(double width, out string errorMessage)
+        public bool ValidWidthInput(int width, out string errorMessage)
         {
  
             if (width < 24 || width > 96)
@@ -88,14 +94,13 @@ namespace MegaDesk_3_RamonAndrade
             if (depthInput.Text.Length > 0)
             {
 
-                double d;
-                if (Double.TryParse(depthInput.Text.Trim(), out d))
+                int d;
+                if (int.TryParse(depthInput.Text.Trim(), out d))
                 {
-                    double depthInp = double.Parse(depthInput.Text);
+                    int depthInp = int.Parse(depthInput.Text);
 
-                    if (!ValidWidthInput(depthInp, out errorMsg2))
+                    if (!ValidDepthInput(depthInp, out errorMsg2))
                     {
-                        depthInput.Select(0, depthInput.Text.Length);
                         this.errorProvider3.SetError(depthInput, errorMsg2);
                     }
                 }
@@ -117,7 +122,7 @@ namespace MegaDesk_3_RamonAndrade
             errorProvider3.SetError(depthInput, "");
         }
 
-        public bool ValidDepthInput(double depth, out string errorMessage)
+        public bool ValidDepthInput(int depth, out string errorMessage)
         {
 
             if (depth < 12 || depth > 48)

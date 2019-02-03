@@ -30,6 +30,7 @@
         {
             this.cancelDisplayQuoteButton = new System.Windows.Forms.Button();
             this.logoViewAllQuotes = new System.Windows.Forms.Label();
+            this.quoteList = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // cancelDisplayQuoteButton
@@ -54,6 +55,18 @@
             this.logoViewAllQuotes.TabIndex = 25;
             this.logoViewAllQuotes.Text = "View All Quotes";
             // 
+            // quoteList
+            // 
+            this.quoteList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quoteList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.quoteList.Location = new System.Drawing.Point(12, 55);
+            this.quoteList.Name = "quoteList";
+            this.quoteList.Size = new System.Drawing.Size(776, 313);
+            this.quoteList.TabIndex = 1;
+            this.quoteList.UseCompatibleStateImageBehavior = false;
+            this.quoteList.View = System.Windows.Forms.View.List;
+            this.quoteList.SelectedIndexChanged += new System.EventHandler(this.quoteList_SelectedIndexChanged);
+            // 
             // ViewAllQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -62,6 +75,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.logoViewAllQuotes);
             this.Controls.Add(this.cancelDisplayQuoteButton);
+            this.Controls.Add(this.quoteList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewAllQuotes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -73,6 +87,7 @@
 
         #endregion
 
+        private System.Windows.Forms.ListView quoteList;
         private System.Windows.Forms.Button cancelDisplayQuoteButton;
         private System.Windows.Forms.Label logoViewAllQuotes;
     }

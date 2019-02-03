@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,18 @@ namespace MegaDesk_3_RamonAndrade
         public AddQuoteForm()
         {
             InitializeComponent();
+
+            Desk desk = new Desk();
+
+            List<DesktopMaterial> materials = Enum.GetValues(typeof(DesktopMaterial)).Cast<DesktopMaterial>().ToList();
+            desktopMaterialComboBox.DataSource = materials;
+
+            var _rush = desk.rushList;
+            rushInput.DataSource = _rush;
+
+            var _drawers = desk.drawerList;
+            this.drawersInput.DataSource = _drawers;
+           
         }
 
         private void cancelAddQuoteButton_Click(object sender, EventArgs e)
@@ -28,8 +41,58 @@ namespace MegaDesk_3_RamonAndrade
         private void buttonSendAddQuote_Click(object sender, EventArgs e)
         {
 
-            // Here will be the send form
+            if (checkFields())
+            {
 
+                try
+                {
+
+                    Desk deskObj = new Desk(
+                         Convert.ToInt32(widthInput.Text.ToString()),
+                         Convert.ToInt32(depthInput.Text.ToString()),
+                         Convert.ToInt32(drawersInput.SelectedIndex.ToString()),
+                         Convert.ToInt32(rushInput.SelectedIndex.ToString()),
+                         (DesktopMaterial)desktopMaterialComboBox.SelectedItem
+                     );
+      
+                    DeskQuotes quote = new DeskQuotes(customerInput.Text, deskObj);
+
+                    // Write in a file
+                    StreamWriter writer = new StreamWriter("quotes.txt", true);
+                    writer.WriteLine(customerInput.Text + ',' + DateTime.Now.ToString("MM/dd/yyyy") + ',' + deskObj.width + ',' + deskObj.depth + ',' + deskObj.surface + ',' + deskObj.drawers + ',' + deskObj.rush + ',' + quote.calcTotalCost().ToString());
+                    writer.Close();
+
+
+                    DisplayQuote displayQuote = new DisplayQuote(deskObj, quote)
+                    {
+                        Tag = this
+                    };
+                    displayQuote.Show(this);
+                    Hide();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Make sure the inputs are correct, and try submitting again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please fill all fields!", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+        }
+
+        public bool checkFields()
+        {
+            if (customerInput.Text != "" && depthInput.Text != "" && widthInput.Text != ""
+                && drawersInput.Text != "" && rushInput.Text != "")
+            {
+                return true;
+            }
+
+            return false;
         }
 
 
@@ -61,12 +124,6 @@ namespace MegaDesk_3_RamonAndrade
 
         private void widthInput_Validated(object sender, EventArgs e)
         {
-
-
-
-
-
- 
 
             errorProvider2.SetError(widthInput, "");
         }
@@ -138,5 +195,6 @@ namespace MegaDesk_3_RamonAndrade
 
         }
 
+   
     }
 }

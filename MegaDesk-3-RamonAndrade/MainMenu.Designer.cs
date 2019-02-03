@@ -89,7 +89,7 @@
             this.logomegaDesk.Name = "logomegaDesk";
             this.logomegaDesk.Size = new System.Drawing.Size(315, 48);
             this.logomegaDesk.TabIndex = 4;
-            this.logomegaDesk.Text = "Mega Desk 1.0";
+            this.logomegaDesk.Text = "Mega Desk 1.1";
             // 
             // linkLabel1
             // 

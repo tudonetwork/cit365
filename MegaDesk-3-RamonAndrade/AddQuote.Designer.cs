@@ -1,4 +1,8 @@
-﻿namespace MegaDesk_3_RamonAndrade
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace MegaDesk_3_RamonAndrade
 {
     partial class AddQuoteForm
     {
@@ -37,7 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.surfaceInput = new System.Windows.Forms.ComboBox();
+            this.desktopMaterialComboBox = new System.Windows.Forms.ComboBox();
             this.drawersInput = new System.Windows.Forms.ComboBox();
             this.widthInput = new System.Windows.Forms.TextBox();
             this.depthInput = new System.Windows.Forms.TextBox();
@@ -87,8 +91,9 @@
             // 
             this.customerInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerInput.Location = new System.Drawing.Point(274, 86);
+            this.customerInput.MaxLength = 25;
             this.customerInput.Name = "customerInput";
-            this.customerInput.Size = new System.Drawing.Size(380, 32);
+            this.customerInput.Size = new System.Drawing.Size(279, 32);
             this.customerInput.TabIndex = 7;
             // 
             // label2
@@ -135,34 +140,18 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Surface material";
             // 
-            // surfaceInput
+            // desktopMaterialComboBox
             // 
-            this.surfaceInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.surfaceInput.FormattingEnabled = true;
-            this.surfaceInput.Items.AddRange(new object[] {
-            "Laminate",
-            "Oak",
-            "Rosewood",
-            "Veneer",
-            "Pine"});
-            this.surfaceInput.Location = new System.Drawing.Point(274, 301);
-            this.surfaceInput.Name = "surfaceInput";
-            this.surfaceInput.Size = new System.Drawing.Size(238, 33);
-            this.surfaceInput.TabIndex = 18;
+            this.desktopMaterialComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.desktopMaterialComboBox.Location = new System.Drawing.Point(274, 301);
+            this.desktopMaterialComboBox.Name = "desktopMaterialComboBox";
+            this.desktopMaterialComboBox.Size = new System.Drawing.Size(238, 33);
+            this.desktopMaterialComboBox.TabIndex = 18;
             // 
             // drawersInput
             // 
             this.drawersInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.drawersInput.FormattingEnabled = true;
-            this.drawersInput.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
             this.drawersInput.Location = new System.Drawing.Point(274, 247);
             this.drawersInput.Name = "drawersInput";
             this.drawersInput.Size = new System.Drawing.Size(238, 33);
@@ -176,7 +165,6 @@
             this.widthInput.Size = new System.Drawing.Size(238, 32);
             this.widthInput.TabIndex = 20;
             this.widthInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.widthInput_Validating);
-            //this.widthInput.Validating += new System.ComponentModel.CancelEventHandler(this.widthInput_Validating);
             this.widthInput.Validated += new System.EventHandler(this.widthInput_Validated);
             // 
             // depthInput
@@ -187,18 +175,12 @@
             this.depthInput.Size = new System.Drawing.Size(238, 32);
             this.depthInput.TabIndex = 21;
             this.depthInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.depthInput_Validating);
-            //this.depthInput.Validating += new System.ComponentModel.CancelEventHandler(this.depthInput_Validating);
             this.depthInput.Validated += new System.EventHandler(this.depthInput_Validated);
-
             // 
             // rushInput
             // 
             this.rushInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rushInput.FormattingEnabled = true;
-            this.rushInput.Items.AddRange(new object[] {
-            "3",
-            "5",
-            "7"});
             this.rushInput.Location = new System.Drawing.Point(274, 354);
             this.rushInput.Name = "rushInput";
             this.rushInput.Size = new System.Drawing.Size(238, 33);
@@ -246,7 +228,7 @@
             this.Controls.Add(this.depthInput);
             this.Controls.Add(this.widthInput);
             this.Controls.Add(this.drawersInput);
-            this.Controls.Add(this.surfaceInput);
+            this.Controls.Add(this.desktopMaterialComboBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -276,7 +258,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox surfaceInput;
+        private System.Windows.Forms.ComboBox desktopMaterialComboBox;
         private System.Windows.Forms.ComboBox drawersInput;
         private System.Windows.Forms.TextBox widthInput;
         private System.Windows.Forms.TextBox depthInput;

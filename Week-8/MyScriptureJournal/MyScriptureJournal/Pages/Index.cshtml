@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center mt-5">
+    <h1 class="display-4 welcome-index">Welcome</h1>
+    <p class="mt-5 fontlaila head-welcome">"Here you can keep your feelings, studies and everything that is in your heart"</p>
+</div>
+
+<div class="text-center mt-5">
+    <a class="webcolor btn btn-lg btn-info mt-1" asp-area="" asp-page="/Journals/Create">Add New Scripture</a> <a class="webcolor btn btn-lg btn-info mt-1" asp-area="" asp-page="/Journals/Index">See My Scriptures</a>
+</div>
+
+
+<div class="display-change-color">
+    <button type="button" class="btn btn-primary" color="btn-primary"></button><br>
+    <button type="button" class="btn btn-secondary" color="btn-secondary"></button><br>
+    <button type="button" class="btn btn-success" color="btn-success"></button><br>
+    <button type="button" class="btn btn-danger" color="btn-danger"></button><br>
+    <button type="button" class="btn btn-warning" color="btn-warning"></button><br>
+    <button type="button" class="btn btn-info" color="btn-info"></button><br>
+    <button type="button" class="btn btn-dark" color="btn-dark"></button>
+</div>

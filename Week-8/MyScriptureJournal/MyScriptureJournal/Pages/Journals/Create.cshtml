@@ -1,0 +1,46 @@
+@page
+@model MyScriptureJournal.Pages.Journals.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    DateTime myDateTime = DateTime.Now;
+    string sqlFormattedDate = myDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+}
+
+<h1>Create</h1>
+<hr />
+<div class="row">
+    <div class="col-12 col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Journal.Book" class="control-label"></label>
+                <input asp-for="Journal.Book" class="form-control" />
+                <span asp-validation-for="Journal.Book" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Journal.Scripture" class="control-label"></label>
+                <input asp-for="Journal.Scripture" class="form-control" />
+                <span asp-validation-for="Journal.Scripture" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Journal.Notes" class="control-label"></label>
+                <textarea rows="6" asp-for="Journal.Notes" class="form-control"></textarea>
+                <span asp-validation-for="Journal.Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" value="@sqlFormattedDate" asp-for="Journal.InsertDate" />
+                <input type="submit" value="Create" class="webcolor btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

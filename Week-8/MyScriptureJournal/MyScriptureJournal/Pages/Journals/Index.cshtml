@@ -1,0 +1,73 @@
+@page "{searchString?}"
+@model MyScriptureJournal.Pages.Journals.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>My Scriptures <a asp-page="Create" class="btn btn-primary">Add New</a></h1>
+
+<div class="row mt-2 mb-2">
+    <div class="col-12" style="text-align:right">
+        <button type="button" class="webcolor btn btn-dark" onclick="$('#form-filter-sort').toggle()">Menu</button>
+    </div>
+</div>
+<form id="form-filter-sort" class="mt-1" style="display:none">
+    <div class="form-row">
+        <div class="col-5 col-md-3">
+            <div class="form-group row">
+                <div class="col-12">Filter by:</div>
+                <div class="col-12">
+                    <select style="width:100%" asp-for="JournalBook" asp-items="Model.BooksList">
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row" style="padding:0px 15px;">
+                <input type="text" class="col-12 form-control" placeholder="Keyword" asp-for="SearchString" />
+                <input type="submit" class="webcolor col-5 mt-3 btn btn-dark" value="Filter" />
+            </div>
+        </div>
+        <div class="col-2 col-md-6">
+        </div>
+        <div class="col-5 col-md-3">
+
+            <div class="form-group row">
+                <div class="col-12">Sort by:</div>
+                <div class="col-12">
+                    <select style="width:100%" asp-for="FilterBy">
+                        <option value="book">Book</option>
+                        <option value="date">Date added</option>
+                    </select>
+                    <input type="submit" class="webcolor col-5 mt-3 btn btn-dark" value="Sort" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<table id="view-scriptures" class="display">
+    <thead>
+        <th></th>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Journal)
+    {
+    <tr class="col-12 div-scripture">
+        <td>
+            <div class="">
+                <b>@Html.DisplayFor(modelItem => item.Book) - @Html.DisplayFor(modelItem => item.Scripture)</b>
+                <br><br>
+                <span class="fontlaila" style="color: #bcbcbc; font-style: italic;">@Html.DisplayFor(modelItem => item.Notes)</span>
+                <br><br>
+                <img src="~/calendar-icon.png" style="height:10px;"> <span style="font-size:12px;">@Html.DisplayFor(modelItem => item.InsertDate)</span>
+                <br>
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </div>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>

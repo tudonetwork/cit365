@@ -1,0 +1,102 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #f4f4f4!important;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+/*font-family: 'Laila', serif;*/
+
+.logo {
+    font-size: 32px;
+    color:#FFF!important;
+    font-family: 'Pacifico', cursive;
+}
+
+.welcome-index {
+    font-family: 'Laila', serif;
+}
+
+.head-welcome {
+    font-style: italic;
+    font-size: 18px;
+}
+
+.display-change-color {
+    box-shadow: 2px 2px 20px #777777;
+    position: fixed;
+    left: 0px;
+    bottom: 10%;
+    padding: 5px;
+    background: #e5e5e5;
+    border-radius: 3px;
+}
+
+.fontpacifico {
+    font-family: 'Pacifico', cursive;
+}
+
+.fontlaila {
+    font-family: 'Laila', serif;
+}
+
+
+.div-scripture {
+    padding: 2% 3%;
+    width: 98%;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 1px 1px 9px #d9d9d9;
+    margin: 1%;
+}

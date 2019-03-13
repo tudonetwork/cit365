@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SQLite" Version="2.2.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Movies\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Models\Movie.json" />
+    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-black.css" />
+    <Content Remove="Views\Movies\Watch.cshtml" />
+    <Content Remove="wwwroot\images\play-button.png" />
+    <Content Remove="wwwroot\images\movie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-black.css" />
+    <None Include="wwwroot\images\play-button.png" />
+    <None Include="wwwroot\images\movie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Controllers\MoviesController2.cs" />
+  </ItemGroup>
+</Project>
